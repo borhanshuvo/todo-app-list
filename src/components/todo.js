@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
+import { BASE_URL } from "../../data/baseURL";
 
 const Todo = ({ todoData, setNumber }) => {
   const {
@@ -15,7 +16,7 @@ const Todo = ({ todoData, setNumber }) => {
   const handleUpdate = (data) => {
     console.log(data);
     const { id, title } = data;
-    fetch("https://todo-app-list-borhanshuvo.vercel.app/api/todoCreate", {
+    fetch(`${BASE_URL}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -31,7 +32,7 @@ const Todo = ({ todoData, setNumber }) => {
   };
 
   const handleDelete = (id) => {
-    fetch("https://todo-app-list-borhanshuvo.vercel.app/api/todoCreate", {
+    fetch(`${BASE_URL}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -46,7 +47,7 @@ const Todo = ({ todoData, setNumber }) => {
       });
   };
   return (
-    <div className="d-flex">
+    <div className="d-flex border-bottom pb-2">
       <div className="p-2 flex-grow-1">
         <input
           type="checkbox"

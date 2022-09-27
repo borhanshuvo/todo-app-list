@@ -11,3 +11,50 @@
 .line-through {
   text-decoration: line-through;
 }
+
+.list-width {
+  width: 30%;
+}
+
+.list-shadow {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-size: 24px;
+}
+
+@media (max-width: 576px) {
+  .list-width {
+    width: 100%;
+    padding: 40px 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .list-width {
+    width: 100%;
+    padding: 40px 10px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .list-width {
+    width: 60%;
+    padding: 40px 20px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .list-width {
+    width: 50%;
+    padding: 40px 30px;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1700px) {
+  .list-width {
+    width: 40%;
+    padding: 40px 30px;
+  }
+}
