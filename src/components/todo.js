@@ -15,7 +15,7 @@ const Todo = ({ todoData, setNumber }) => {
   const handleUpdate = (data) => {
     console.log(data);
     const { id, title } = data;
-    fetch("http://localhost:3000/api/todoCreate", {
+    fetch("https://todo-app-list-borhanshuvo.vercel.app/api/todoCreate", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -31,7 +31,7 @@ const Todo = ({ todoData, setNumber }) => {
   };
 
   const handleDelete = (id) => {
-    fetch("http://localhost:3000/api/todoCreate", {
+    fetch("https://todo-app-list-borhanshuvo.vercel.app/api/todoCreate", {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

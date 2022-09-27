@@ -13,7 +13,7 @@ const TodoList = () => {
   const [number, setNumber] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/todoCreate")
+    fetch("https://todo-app-list-borhanshuvo.vercel.app/api/todoCreate")
       .then((res) => res.json())
       .then((result) => {
         if (result.success) {
@@ -23,7 +23,7 @@ const TodoList = () => {
   }, [number]);
 
   const onSubmit = (data, e) => {
-    fetch("http://localhost:3000/api/todoCreate", {
+    fetch("https://todo-app-list-borhanshuvo.vercel.app/api/todoCreate", {
       method: "POST",
       headers: {
         "content-type": "application/json",
