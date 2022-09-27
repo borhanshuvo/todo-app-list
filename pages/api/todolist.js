@@ -8,7 +8,9 @@ export default async function todo(req, res) {
   switch (method) {
     case "GET":
       try {
-        const notes = await Todo.find({});
+        const notes = await Todo.find({}).sort({
+          createdAt: -1,
+        });
         res.status(200).json({ success: true, data: notes });
       } catch (error) {
         res.status(400).json({ success: false });
@@ -17,7 +19,9 @@ export default async function todo(req, res) {
 
     case "POST":
       try {
-        const note = await Todo.create(req.body);
+        const todo = new Todo(req.body);
+        const note = await todo.save();
+
         res.status(201).json({ success: true });
       } catch (error) {
         res.status(400).json({ success: false });

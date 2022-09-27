@@ -4,7 +4,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { BASE_URL } from "../../data/baseURL";
 
-const Todo = ({ todoData, setNumber }) => {
+const Todo = ({ todoData, setNumber, setLoading }) => {
   const {
     register,
     handleSubmit,
@@ -14,7 +14,7 @@ const Todo = ({ todoData, setNumber }) => {
   const [mark, setMark] = useState(false);
 
   const handleUpdate = (data) => {
-    console.log(data);
+    setLoading(true);
     const { id, title } = data;
     fetch(`${BASE_URL}`, {
       method: "PUT",
@@ -27,11 +27,14 @@ const Todo = ({ todoData, setNumber }) => {
       .then((result) => {
         if (result.success) {
           setNumber((prevState) => prevState + 1);
+          setLoading(false);
+          return swal("Thank You", "Successfully updated!", "success");
         }
       });
   };
 
   const handleDelete = (id) => {
+    setLoading(true);
     fetch(`${BASE_URL}`, {
       method: "DELETE",
       headers: {
@@ -43,6 +46,8 @@ const Todo = ({ todoData, setNumber }) => {
       .then((result) => {
         if (result.success) {
           setNumber((prevState) => prevState + 1);
+          setLoading(false);
+          return swal("Thank You", "Successfully deleted!", "success");
         }
       });
   };
